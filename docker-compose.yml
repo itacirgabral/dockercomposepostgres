@@ -1,33 +1,33 @@
 version: "3.5"
 
 services:
-  postgresql:
+  pg:
     image: postgres
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: postgresql
-      POSTGRES_USER: postgresql
-      POSTGRES_DB: postgresql
+      POSTGRES_PASSWORD: pg
+      POSTGRES_USER: pg
+      POSTGRES_DB: pg
     ports:
       - "5432:5432"
     networks: 
       - dblink
     volumes: 
-      - "./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
-      - "./postgresqldata:/var/lib/postgresql/data"
-  gui:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./postgresqldata:/var/lib/postgresql/data
+  pgadm:
     image: dpage/pgadmin4
     restart: unless-stopped
     depends_on:
-      - db
+      - pg
     environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin@email.com
-      PGADMIN_DEFAULT_PASSWORD: pgadmin
+      PGADMIN_DEFAULT_EMAIL: pgadm@email.com
+      PGADMIN_DEFAULT_PASSWORD: pgadm
       PGADMIN_LISTEN_PORT: "5050"
     ports:
       - "5050:5050"
     volumes: 
-      - "./pgadmindata:/var/lib/pgadmin"
+      - ./pgadmindata:/var/lib/pgadmin
     networks: 
       - dblink
 
