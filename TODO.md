@@ -1,0 +1,3 @@
+- https://madusudanan.com/blog/understanding-postgres-caching-in-depth/
+- https://www.ibm.com/cloud/blog/an-introduction-to-postgresqls-hstore
+- `id uuid PRIMARY KEY DEFAULT uuid_generate_v4()`

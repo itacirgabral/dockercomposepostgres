@@ -1,0 +1,3 @@
+# POSTGRES PGADMIN DOCKER COMPOSE
+Simple example
+
