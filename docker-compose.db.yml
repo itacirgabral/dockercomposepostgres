@@ -15,21 +15,6 @@ services:
     volumes: 
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./postgresqldata:/var/lib/postgresql/data
-  pgadm:
-    image: dpage/pgadmin4
-    restart: unless-stopped
-    depends_on:
-      - pg
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadm@email.com
-      PGADMIN_DEFAULT_PASSWORD: pgadm
-      PGADMIN_LISTEN_PORT: "5050"
-    ports:
-      - "5050:5050"
-    volumes: 
-      - ./pgadmindata:/var/lib/pgadmin
-    networks: 
-      - dblink
 
 networks:
   dblink:

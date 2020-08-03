@@ -1,20 +1,6 @@
 version: "3.5"
 
 services:
-  pg:
-    image: postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_PASSWORD: pg
-      POSTGRES_USER: pg
-      POSTGRES_DB: pg
-    ports:
-      - "5432:5432"
-    networks: 
-      - dblink
-    volumes: 
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - ./postgresqldata:/var/lib/postgresql/data
   pgadm:
     image: dpage/pgadmin4
     restart: unless-stopped
